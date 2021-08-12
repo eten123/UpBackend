@@ -24,6 +24,11 @@ class Api::V1::BrandsController < ApplicationController
         render json: @brand 
     end
 
+    def destroy
+        @brand = Brand.find(params[:id])
+        @brand.destroy
+    end
+
     private
     def check_params
         params.permit(:firstname, :lastname, :age)
